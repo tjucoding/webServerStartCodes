@@ -251,26 +251,18 @@ static bool map_uri_to_path(const char *uri, char *path, size_t path_sz) {
         return false;
     }
 
-    char clean_uri[4096] = {0};
-    size_t i = 0;
-    while (uri[i] && uri[i] != '?' && uri[i] != '#' && i < sizeof(clean_uri) - 1) {
-        clean_uri[i] = uri[i];
-        i++;
-    }
-    clean_uri[i] = '\0';
-
-    if (strcmp(clean_uri, "/") == 0) {
+    if (strcmp(uri, "/") == 0) {
         snprintf(path, path_sz, "static_site/index.html");
         return true;
     }
 
-    snprintf(path, path_sz, "static_site/%s", clean_uri + 1);
+    snprintf(path, path_sz, "static_site/%s", uri + 1);
     return true;
 }
 
 static size_t handle_get_head(int fd, const HttpRequest *req, int *status_out) {
     char path[4096] = {0};
-if (!map_uri_to_path(req->parsed->http_uri, path, sizeof(path))) {
+    if (!map_uri_to_path(req->parsed->http_uri, path, sizeof(path))) {
         *status_out = 404;
         return send_simple_response(fd, RESPONSE_404);
     }
