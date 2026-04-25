@@ -270,7 +270,7 @@ static bool map_uri_to_path(const char *uri, char *path, size_t path_sz) {
 
 static size_t handle_get_head(int fd, const HttpRequest *req, int *status_out) {
     char path[4096] = {0};
-    if (!map_uri_to_path(req->parsed->http_uri, path, sizeof(path))) {
+if (!map_uri_to_path(req->parsed->http_uri, path, sizeof(path))) {
         *status_out = 404;
         return send_simple_response(fd, RESPONSE_404);
     }
