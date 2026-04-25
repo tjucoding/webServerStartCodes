@@ -1,8 +1,9 @@
-/* A Bison parser, made by GNU Bison 3.0.4.  */
+/* A Bison parser, made by GNU Bison 3.8.2.  */
 
 /* Bison interface for Yacc-like parsers in C
 
-   Copyright (C) 1984, 1989-1990, 2000-2015 Free Software Foundation, Inc.
+   Copyright (C) 1984, 1989-1990, 2000-2015, 2018-2021 Free Software Foundation,
+   Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -15,7 +16,7 @@
    GNU General Public License for more details.
 
    You should have received a copy of the GNU General Public License
-   along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
+   along with this program.  If not, see <https://www.gnu.org/licenses/>.  */
 
 /* As a special exception, you may create a larger work that contains
    part or all of the Bison parser skeleton and distribute that work
@@ -30,8 +31,12 @@
    This special exception was added by the Free Software Foundation in
    version 2.2 of Bison.  */
 
-#ifndef YY_YY_Y_TAB_H_INCLUDED
-# define YY_YY_Y_TAB_H_INCLUDED
+/* DO NOT RELY ON FEATURES THAT ARE NOT DOCUMENTED in the manual,
+   especially those whose name start with YY_ or yy_.  They are
+   private implementation details that can be changed or removed.  */
+
+#ifndef YY_YY_SRC_Y_TAB_H_INCLUDED
+# define YY_YY_SRC_Y_TAB_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -40,52 +45,43 @@
 extern int yydebug;
 #endif
 
-/* Token type.  */
+/* Token kinds.  */
 #ifndef YYTOKENTYPE
 # define YYTOKENTYPE
   enum yytokentype
   {
-    t_crlf = 258,
-    t_backslash = 259,
-    t_slash = 260,
-    t_digit = 261,
-    t_dot = 262,
-    t_token_char = 263,
-    t_lws = 264,
-    t_colon = 265,
-    t_separators = 266,
-    t_sp = 267,
-    t_ws = 268,
-    t_ctl = 269
+    YYEMPTY = -2,
+    YYEOF = 0,                     /* "end of file"  */
+    YYerror = 256,                 /* error  */
+    YYUNDEF = 257,                 /* "invalid token"  */
+    t_crlf = 258,                  /* t_crlf  */
+    t_backslash = 259,             /* t_backslash  */
+    t_slash = 260,                 /* t_slash  */
+    t_digit = 261,                 /* t_digit  */
+    t_dot = 262,                   /* t_dot  */
+    t_token_char = 263,            /* t_token_char  */
+    t_lws = 264,                   /* t_lws  */
+    t_colon = 265,                 /* t_colon  */
+    t_separators = 266,            /* t_separators  */
+    t_sp = 267,                    /* t_sp  */
+    t_ws = 268,                    /* t_ws  */
+    t_ctl = 269                    /* t_ctl  */
   };
+  typedef enum yytokentype yytoken_kind_t;
 #endif
-/* Tokens.  */
-#define t_crlf 258
-#define t_backslash 259
-#define t_slash 260
-#define t_digit 261
-#define t_dot 262
-#define t_token_char 263
-#define t_lws 264
-#define t_colon 265
-#define t_separators 266
-#define t_sp 267
-#define t_ws 268
-#define t_ctl 269
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-
 union YYSTYPE
 {
-#line 50 "src/parser.y" /* yacc.c:1909  */
+#line 50 "src/parser.y"
 
 	char str[8192];
 	int i;
 
-#line 87 "y.tab.h" /* yacc.c:1909  */
-};
+#line 83 "src/y.tab.h"
 
+};
 typedef union YYSTYPE YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
@@ -94,6 +90,8 @@ typedef union YYSTYPE YYSTYPE;
 
 extern YYSTYPE yylval;
 
+
 int yyparse (void);
 
-#endif /* !YY_YY_Y_TAB_H_INCLUDED  */
+
+#endif /* !YY_YY_SRC_Y_TAB_H_INCLUDED  */

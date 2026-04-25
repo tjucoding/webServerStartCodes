@@ -493,7 +493,7 @@ int main(void) {
                 memmove(conn_buf, conn_buf + consumed, conn_len - consumed);
                 conn_len -= consumed;
 
-                if (close_conn) {
+                if (close_conn || status >= 400) {
                     done = true;
                     break;
                 }
